@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nyari Sewa Motor Bali</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Nunito', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    /* Header */
+    header {
+        background-color: #ffffff;
+        color: #fff;
+        padding: 20px 0;
+    }
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    /* Logo Container Styling */
+    .logo {
+        display: flex;               /* Use flexbox layout */
+        align-items: center;         /* Vertically align items to the center */
+        gap: 15px;                   /* Add some space between the logo image and text */
+    }
+
+    /* Logo Image Styling */
+    .logo img {
+        height: 50px;                /* Set a fixed height for the logo image */
+        width: auto;                 /* Maintain the aspect ratio of the logo */
+    }
+
+    /* Logo Text Styling */
+    .logo h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;           /* Adjust font size for h1 */
+        font-weight: 600;
+        margin: 0;                   /* Remove default margin */
+        color: #000000;              /* Set the color for the text */
+    }
+    nav {
+        display: flex;
+        gap: 15px;
+    }
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 8px 12px;
+        transition: background 0.3s;
+    }
+    nav a:hover {
+        background-color: #555;
+        border-radius: 5px;
+    }
+
+    /* Hero Section Styling */
+    .hero-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+        background: none; /* White background */
+        color: #242424; /* Text color */
+        position: relative;
+        overflow: hidden; /* Ensure dot doesn't spill out */
+    }
+
+    .hero-section h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 2.5rem;
+        margin-bottom: 10px;  /* Space between h1 and p */
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 400px;  /* Control max size */
+        height: auto;
+        z-index: 1;
+        background: transparent;
+    }
+
+    /* Red Dot Styling */
+    .red-dot {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 450px;
+        height: 450px; 
+        background-color: #dd2b2b;
+        border-bottom-left-radius: 100% 100%;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* Desktop and Tablet */
+    @media (min-width: 768px) {
+        .hero-section {
+            flex-direction: row; /* Align image and text horizontally */
+            text-align: left;
+        }
+
+        .hero-section h1, .hero-section p {
+            text-align: left; /* Align text to the left */
+        }
+
+        .hero-image {
+            margin-left: 20px;
+        }
+
+        /* Adjust red dot size for larger screens */
+        .red-dot {
+            width: 350px;
+            height: 350px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 767px) {
+        .hero-section {
+            flex-direction: column; /* Stack text and image vertically */
+        }
+
+        .hero-image {
+            margin-top: 20px; /* Add space between text and image */
+        }
+
+        /* Adjust red dot size for larger screens */
+        .red-dot {
+            width: 250px;
+            height: 250px;
+            top: auto;  /* Remove top positioning */
+            bottom: 0; /* Places it at the bottom */
+            right: auto; /* Keeps it at the right */
+            left: 0;
+            border-bottom-left-radius: 0 0;
+            border-top-right-radius: 100% 100%;
+        }
+    }
+
+    /* Our Benefits Section */
+    .benefits-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 40px 20px;
+        background-color: #f0f0f0;
+    }
+    .benefit-item {
+        flex: 1 1 45%;
+        min-width: 200px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    /* FAQ Section Styling */
+    .faq-section {
+        padding: 40px 20px;
+    }
+    .faq-section h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .faq-item {
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        background-color: #f9f9f9;
+        border-left: 4px solid #4a90e2;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+    .faq-question {
+        font-weight: 600;
+        color: #333;
+    }
+    .faq-answer {
+        padding-left: 10px;
+        color: #555;
+        font-size: 0.95rem;
+        display: none; /* Hidden by default */
+        margin-top: 10px;
+    }
+    .faq-item.active .faq-answer {
+        display: block; /* Show answer when active */
+    }
+
+    /* Instagram-like Grid */
+    .content-section {
+        padding: 40px 0;
+    }
+    .content-section h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    /*html is made by Default Company Tender Giant in 2024 */
+
+    /* Color selection button styling */
+    .color-options {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .color-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        background-color: #242424;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .color-btn:hover {
+        background-color: #555;
+    }
+
+    /* General Grid Item Styling */
+    .grid-item {
+        position: relative;
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .grid-item:hover {
+        transform: scale(1.05);
+    }
+
+    /* Image Styling */
+    .grid-item img {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Base Grid Layout (for mobile) */
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default to 1 item per row */
+        gap: 20px;
+    }
+
+    /* Color Options Styling */
+    .color-options {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .color-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+        background-color: #242424;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .color-btn:hover {
+        background-color: #555;
+    }
+
+    /* Scooter Details Section */
+    .scooter-details {
+        display: none; /* Hidden by default */
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .book-now-btn {
+        background-color: #a40010;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .book-now-btn:hover {
+        background-color: #85000d;
+    }
+
+    /* Tablet and Desktop Layout (2 items per row) */
+    @media (min-width: 768px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        }
+
+        .grid-item {
+            padding: 15px;
+        }
+
+        .scooter-details {
+                width: 100%;
+                bottom: 10px;
+                left: 0;
+        }
+    }
+
+    /* For larger screens (Desktops) */
+    @media (min-width: 1024px) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        }
+    }
+
+    /* For small mobile devices (max-width 480px) */
+    @media (max-width: 480px) {
+        .grid {
+            grid-template-columns: 1fr; /* 1 item per row for very small screens */
+        }
+    }
+
+    /* Button Styling */
+    .hero-button {
+            color: #ffffff; /* Text color */
+            background-color: #242424; /* Background color */
+            border: 0; /* No border */
+            margin: 10px; /* Space around the button */
+            width: 160px; /* Default width */
+            height: 80px; /* Default height */
+            border-radius: 10px; /* Rounded corners */
+            font-size: 0.6rem; /* Text size */
+            font-weight: 600; /* Bold text */
+            text-transform: uppercase; /* Make text uppercase */
+            cursor: pointer; /* Change cursor to pointer */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        /* Button Hover Effect */
+        .hero-button:hover {
+            background-color: #a40010; /* Change to majestic red on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+        }
+
+        /* Media Query for Tablet */
+        @media (max-width: 1024px) {
+            .hero-button {
+                width: 140px; /* Slightly smaller on tablets */
+                height: 70px;
+                bottom: 0;
+                align-self: center;
+                position: absolute;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .hero-button {
+                width: 140px; /* Slightly smaller on tablets */
+                height: 70px;
+                bottom: 0;
+                align-self: center;
+                position: absolute;
+            }
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .hero-button {
+                width: 120px; /* Smaller button on mobile */
+                height: 60px;
+            }
+        }
+
+    /* Footer */
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+    footer p {
+        font-size: 0.9rem;
+    }
+
+    /* Floating Chat Button */
+    .chat-button {
+        position: fixed;
+        bottom: 20px;   /* Distance from the bottom of the screen */
+        right: 20px;    /* Distance from the right of the screen */
+        background-color: #25D366;  /* WhatsApp Green */
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;  /* Center the icon horizontally */
+        align-items: center;      /* Center the icon vertically */
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 9999;
+        width: 100px;     /* Set button width to 50px */
+        height: 100px;    /* Set button height to 50px */
+    }
+
+    /* WhatsApp icon inside the button */
+    .chat-button img {
+        width: 60px;  /* Set the icon width to 30px */
+        height: 60px; /* Set the icon height to 30px */
+    }
+
+    /* Optional: Hover Effect */
+    .chat-button:hover {
+        background-color: #128C7E; /* Darker shade of WhatsApp green on hover */
+    }
+
+    
+</style>
+</head>
+<body>
+
+<div id="page">
+    <!-- Header -->
+    <header id="masthead">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="logo.png" alt="Logo"></a>
+            </div>
+            <nav style="background-color: #242424; border-radius: 5px;">
+                <a href="https://wa.me/6287822387007">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Sewa Motor Baru di Bali! <br>
+            <p>Your Reliable patner for scooter rentals</p>
+        </h1>
+        <img src="PCX160ABS.png" alt="Scooter in Bali" class="hero-image">
+        <!-- Red Dot in the corner -->
+        <div class="red-dot"></div>
+        <button class="hero-button">See Our Scooter</butto>
+    </section>
+
+    <!-- Our Scooter Section (Instagram-like Grid) -->
+    <section class="content-section">
+        <h2>Our Scooter</h2>
+        <div class="grid">
+            <!-- Scooter Option 1: Vario 150 CBS -->
+            <div class="grid-item" onclick="toggleDetails('scooter1')">
+                <img id="scooter1-image" src="Vario125CBSMBlack.png" alt="Vario 150 CBS">
+                <h3>Vario 150 CBS</h3>
+    
+                <!-- Color Options (Always visible) -->
+                <div class="color-options">
+                    <button class="color-btn" onclick="document.getElementById('scooter1-image').src='Vario125CBSMBlack.png'">Black</button>
+                    <button class="color-btn" onclick="document.getElementById('scooter1-image').src='Vario125CBSMBlue.png'">Blue</button>
+                </div>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter1-details" style="display:none;">
+                    <p>Motor Paling Reliable untuk Harian.</p>
+                    <p>Weekly Rate: Rp 700.000</p>
+                    <p>Monthly Rate: Rp 1.200.000</p>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+            </div>
+    
+            <!-- Scooter Option 2: Scoopy Sporty -->
+            <div class="grid-item" onclick="toggleDetails('scooter2')">
+                <img id="scooter2-image" src="ScoopySilver.png" alt="Scoopy Sporty">
+                <h3>Scoopy Sporty</h3>
+    
+                <!-- Color Options (Always visible) -->
+                <div class="color-options">
+                    <button class="color-btn" onclick="document.getElementById('scooter2-image').src='ScoopyBlack.png'">Black</button>
+                    <button class="color-btn" onclick="document.getElementById('scooter2-image').src='ScoopySilver.png'">Silver</button>
+                </div>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter2-details" style="display:none;">
+                    <p>Description: The Scoopy Sporty is a compact and fun scooter for daily use.</p>
+                    <p>Weekly Rate: Rp 600.000</p>
+                    <p>Monthly Rate: Rp 1.000.000</p>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+            </div>
+    
+            <!-- Scooter Option 3: PCX 150 CBS -->
+            <div class="grid-item" onclick="toggleDetails('scooter3')">
+                <img id="scooter3-image" src="PCX150Silver.png" alt="PCX 150 CBS">
+                <h3>PCX 150 CBS</h3>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter3-details" style="display:none;">
+                    <p>Description: The PCX 150 CBS combines comfort and performance.</p>
+                    <p>Weekly Rate: Rp 1.000.000</p>
+                    <p>Monthly Rate: Rp 2.000.000</p>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+            </div>
+    
+            <!-- Scooter Option 4: PCX 160 CBS -->
+            <div class="grid-item" onclick="toggleDetails('scooter4')">
+                <img id="scooter4-image" src="PCX160ABS.png" alt="PCX 160 CBS">
+                <h3>PCX 160 CBS</h3>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter4-details" style="display:none;">
+                    <p>Description: The PCX 160 CBS offers advanced features for a smooth ride.</p>
+                    <p>Weekly Rate: Rp 1.250.000</p>
+                    <p>Monthly Rate: Rp 2.500.000</p>
+                    <button class="book-now-btn">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefit-item">
+            <h3>Free Helmet </h3>
+            <p>Enjoy Your Riding With Safe Gear.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>Free Rain Coat</h3>
+            <p>Protecting You From Heavy Rainfall.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>New Units</h3>
+            <p>Our Scooters Oldest Unit is from 2020.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>Easy Booking</h3>
+            <p>Book your scooter quickly and easily online.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>
+        <div class="faq-item">
+            <div class="faq-question">Apa saja syarat yang di perlukan untuk menyewa motor?</div>
+            <div class="faq-answer">Syaratnya adalah melampirkan minimal 2 kartu identitas yang bisa berupa : SIM/SIM internasional, KTP/Id Card, Passport, BPJS, NPWP.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Bisakah motor diserahkan kepada orang lain?</div>
+            <div class="faq-answer">Motor tidak dapat dipindahtangankan, namun identitas dapat digabungkan jika ada mitra atau rekan yang menyewa bersamaan.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Apakah ada layanan antar-jemput?</div>
+            <div class="faq-answer">Kami menyediakan layanan antar-jemput gratis di area Denpasar dan Badung.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Apa cara terbaik untuk menyewa motor?</div>
+            <div class="faq-answer">Cara terbaik adalah melakukan pemesanan melalui situs web kami untuk memastikan ketersediaan dan konfirmasi pemesanan secara instan.</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Nyari Sewa Motor Bali. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Chat Button -->
+    <button class="chat-button" onclick="window.location.href='https://wa.me/6287822387007'">
+        <img src="whatsappicon.png" alt="WhatsApp" />
+    </button>
+
+</div>
+<script>
+    // JavaScript to toggle FAQ answer visibility
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+    // This function is for handling the color switch dynamically for all scooters.
+    function switchColor(imageId, color) {
+        if (color === 'black') {
+            document.getElementById(imageId).src = 'Vario125CBSMBlack.png';
+        } else if (color === 'blue') {
+            document.getElementById(imageId).src = 'Vario125CBSMBlue.png';
+        }
+    }
+
+    function toggleDetails(scooterId) {
+        // Get the details section based on the scooterId
+        var details = document.getElementById(scooterId + '-details');
+
+        // Toggle the visibility of the scooter details
+        if (details.style.display === 'block') {
+            details.style.display = 'none';  // Hide the details
+        } else {
+            details.style.display = 'block'; // Show the details
+        }
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
