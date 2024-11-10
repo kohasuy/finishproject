@@ -51,14 +51,28 @@
     }
 
     .book-now a {
-        background-color: #dd2b2b;
         color: #fff;
         padding: 5px 15px;
         border-radius: 5px;
     }
 
+
+    .book-now {
+        background-color: #dd2b2b;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .book-now:hover {
+        background-color: #242424;
+    }
+
     /* Mobile Styling */
-    @media (max-width: 768px) {
+    @media (max-width: 950px) {
         .nav-links {
             display: none; /* Hide all nav links except IND/EN and Book Now */
         }
@@ -190,11 +204,13 @@
 
     .nav-links a {
         transition: border-bottom 0.3s ease, outline 0.3s ease;  /* Add transition to both border and outline */
+        border-bottom: 3px solid #dd2b2b00;
     }
 
     .nav-links a:hover {
-        outline: 3px solid #dd2b2b00;  /* Use outline instead of border */
+        color: #dd2b2b;
         border-bottom: 3px solid #dd2b2b;
+        transition: border-bottom 0.3s ease, outline 0.3s ease;  /* Add transition to both border and outline */
     }
 
 
@@ -352,8 +368,6 @@
         margin-bottom: 20px;
     }
 
-    /*html is made by Default Company Tender Giant in 2024 */
-
     /* Color selection button styling */
     .color-options {
         margin-top: 10px;
@@ -382,10 +396,29 @@
         position: relative;
         text-align: center;
         background-color: #fff;
-        padding: 20px;
+        padding: 15%;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
+        overflow: hidden; /* Contain any excessive overflow */
+        max-height: 450px;
+        margin-bottom: 50px; /* Adds extra space between items */
+    }
+
+    .grid-item:hover {
+        transform: scale(1.05);
+    }
+
+    /* General Grid Item Styling */
+    .grid-item {
+        position: relative;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        overflow: visible; /* Allows image to overflow the top */
+        max-height: 500px;
     }
 
     .grid-item:hover {
@@ -396,22 +429,36 @@
     .grid-item img {
         width: 100%;
         height: auto;
-        max-width: 300px;
-        margin-bottom: 10px;
+        max-height: 50%;
+        position: relative;
+        top: -20px; /* Moves image up by 20px to overlap the top */
+        max-width: none;
+        margin-top: -20px; /* Further controls the overlap effect */
         transition: transform 0.3s ease-in-out;
+        z-index: 1; /* Ensures image is on top of background elements */
     }
 
-    /* Base Grid Layout (for mobile) */
+    /* Base Grid Layout */
     .grid {
+        margin-top: 100px;
         display: grid;
         grid-template-columns: 1fr; /* Default to 1 item per row */
-        gap: 20px;
+        gap: 50px; /* Adds spacing between grid items */
     }
 
-        /* Base Grid Layout (for mobile) */
     .grid h3 {
         color: #dd2b2b;
+        z-index: 1;
+        position: relative;
+        top: -5%; /* Adjust heading positioning if needed */
     }
+
+    .grid div {
+        z-index: 1;
+        position: relative;
+        top: -5%;
+    }
+
     /* Color Options Styling */
     .color-options {
         display: flex;
@@ -443,19 +490,6 @@
         flex-direction: column;
     }
 
-    .book-now-btn {
-        background-color: #dd2b2b;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .book-now-btn:hover {
-        background-color: #85000d;
-    }
 
     /* Tablet and Desktop Layout (2 items per row) */
     @media (min-width: 768px) {
@@ -537,6 +571,8 @@
             .hero-button {
                 width: 120px; /* Smaller button on mobile */
                 height: 60px;
+                bottom: 0;
+                margin-bottom: 0;
             }
         }
 
@@ -559,6 +595,7 @@
         align-items: center;  /* Center aligns vertically */
         gap: 10px;            /* Space between .chat-info and .chat-button */
         flex-direction: row;  /* Places .chat-button on the right */
+        z-index: 10;
     }
 
     .chat-info {
