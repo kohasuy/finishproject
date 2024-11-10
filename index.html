@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nyari Sewa Motor Bali</title>
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" href="/logo.png" sizes="16x16" type="image/png">
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -162,6 +162,7 @@
 
     /* Logo Image Styling */
     .logo img {
+        margin-left: 25px;
         height: 50px;                /* Set a fixed height for the logo image */
         width: auto;                 /* Maintain the aspect ratio of the logo */
     }
@@ -184,15 +185,18 @@
         color: #242424;
         text-decoration: none;
         padding: 8px 12px;
-        transition: background 0.3s, outline 0.3s;  /* Added outline transition for smooth effect */
         box-sizing: border-box;  /* Ensure padding and border are included in the element's size */
     }
 
-    nav a:hover {
+    .nav-links a {
+        transition: border-bottom 0.3s ease, outline 0.3s ease;  /* Add transition to both border and outline */
+    }
+
+    .nav-links a:hover {
         outline: 3px solid #dd2b2b00;  /* Use outline instead of border */
         border-bottom: 3px solid #dd2b2b;
-        border-radius: 5px;  /* Keep the rounded corners */
     }
+
 
 
     /* Hero Section Styling */
@@ -404,6 +408,10 @@
         gap: 20px;
     }
 
+        /* Base Grid Layout (for mobile) */
+    .grid h3 {
+        color: #dd2b2b;
+    }
     /* Color Options Styling */
     .color-options {
         display: flex;
@@ -429,9 +437,10 @@
 
     /* Scooter Details Section */
     .scooter-details {
-        display: none; /* Hidden by default */
+        display: flex;
         margin-top: 20px;
         text-align: center;
+        flex-direction: column;
     }
 
     .book-now-btn {
@@ -468,7 +477,7 @@
     /* For larger screens (Desktops) */
     @media (min-width: 1024px) {
         .grid {
-            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+            grid-template-columns: repeat(3, 1fr); /* 2 items per row */
         }
     }
 
@@ -659,14 +668,9 @@
                 <h3>Vario 150 CBS Matte Black</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter1-details" style="display:none;">
-                    <p>Motor Paling Reliable untuk Harian.</p>
+                <div class="scooter-details" id="scooter1-details">
                     <p>Weekly Rate: Rp 700.000</p>
                     <p>Monthly Rate: Rp 1.200.000</p>
-                    <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Vario%20150CBS%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
 
@@ -676,14 +680,9 @@
                 <h3>Vario 150 CBS Matte Blue</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter2-details" style="display:none;">
-                    <p>Motor Paling Reliable untuk Harian.</p>
+                <div class="scooter-details" id="scooter2-details">
                     <p>Weekly Rate: Rp 700.000</p>
                     <p>Monthly Rate: Rp 1.200.000</p>
-                    <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Vario%20150CBS%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
     
@@ -693,14 +692,9 @@
                 <h3>Scoopy Sporty Silver</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter3-details" style="display:none;">
-                    <p>Description: The Scoopy Sporty is a compact and fun scooter for daily use.</p>
+                <div class="scooter-details" id="scooter3-details">
                     <p>Weekly Rate: Rp 600.000</p>
                     <p>Monthly Rate: Rp 1.000.000</p>
-                        <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Scoopy%20Sporty%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
 
@@ -710,14 +704,9 @@
                 <h3>Scoopy Sporty Black</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter4-details" style="display:none;">
-                    <p>Description: The Scoopy Sporty is a compact and fun scooter for daily use.</p>
+                <div class="scooter-details" id="scooter4-details">
                     <p>Weekly Rate: Rp 600.000</p>
                     <p>Monthly Rate: Rp 1.000.000</p>
-                        <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Scoopy%20Sporty%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
     
@@ -727,14 +716,9 @@
                 <h3>PCX 150 CBS</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter5-details" style="display:none;">
-                    <p>Description: The PCX 150 CBS combines comfort and performance.</p>
+                <div class="scooter-details" id="scooter5-details">
                     <p>Weekly Rate: Rp 1.000.000</p>
                     <p>Monthly Rate: Rp 2.000.000</p>
-                    <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20PCX%20150%20CBS%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
     
@@ -744,14 +728,9 @@
                 <h3>PCX 160 CBS</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter6-details" style="display:none;">
-                    <p>Description: The PCX 160 CBS offers advanced features for a smooth ride.</p>
+                <div class="scooter-details" id="scooter6-details">
                     <p>Weekly Rate: Rp 1.250.000</p>
                     <p>Monthly Rate: Rp 2.500.000</p>
-                    <!-- WhatsApp Book Now Button -->
-                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20PCX%20160%20CBS%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
-                        Book Now
-                    </button>
                 </div>
             </div>
         </div>
