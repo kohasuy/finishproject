@@ -1,13 +1,14 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nyari Sewa Motor Bali</title>
+<link rel="icon" href="/logo.png" sizes="16x16" type="image/png">
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 <style>
     /* Basic Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,20 +18,139 @@
         color: #333;
     }
 
+    /* Basic Header Styling */
+    #masthead {
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-right: auto; /* Keeps the logo on the left */
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 5px; /* Adds spacing between elements in the right section */
+    }
+
+    /* Styling for Links and Buttons */
+    .nav-links a, .book-now a {
+        text-decoration: none;
+        color: #333;
+        margin: 0 10px;
+    }
+
+    .book-now a {
+        background-color: #dd2b2b;
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 5px;
+    }
+
+    /* Mobile Styling */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; /* Hide all nav links except IND/EN and Book Now */
+        }
+
+        .container {
+            justify-content: space-between; /* Keeps logo on the left, rest on the right */
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    .lang-toggle a {
+        display: flex;
+        align-items: center;
+        color: #242424;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .lang-toggle img {
+        width: 24px; /* Adjust flag size */
+        height: auto;
+        margin-right: 8px; /* Space between flag and text */
+    }
+
+    .lang-toggle span {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /* Optional: Hover effect for the language toggle */
+    .lang-toggle a:hover {
+        color: #dd2b2b; /* Change text color on hover */
+    }
+
+    /* Container for language options */
+    .language-options {
+        display: none; /* Initially hidden */
+        position: absolute; /* Position below the language button */
+        top: 35px; /* Adjust as needed to position below */
+        right: 0; /* Align to the right of the lang-toggle button */
+        background-color: #fff;
+        width: 200px; /* Width of the options container */
+        height: 100px; /* Height of the options container */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for the dropdown */
+        border-radius: 5px;
+        overflow: hidden;
+        z-index: 9999;
+    }
+
+    /* Styling for the individual language option links */
+    .language-option {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        color: #242424;
+        text-decoration: none;
+        text-align: left;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s ease;
+    }
+
+    .language-option:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* Styling for the flag icons inside the language options */
+    .flag-icon {
+        width: 20px;   /* Set the flag icon width */
+        height: 20px;  /* Set the flag icon height */
+        border-radius: 50%; /* Make it rounded */
+        margin-right: 10px; /* Space between the flag and the text */
+    }
+
+    /* Optional: Centering the text of language option */
+    .language-option span {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+
     /* Header */
     header {
         background-color: #ffffff;
         color: #fff;
         padding: 20px 0;
     }
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+
     /* Logo Container Styling */
     .logo {
         display: flex;               /* Use flexbox layout */
@@ -52,20 +172,26 @@
         margin: 0;                   /* Remove default margin */
         color: #000000;              /* Set the color for the text */
     }
+    
     nav {
         display: flex;
         gap: 15px;
     }
+
     nav a {
-        color: #fff;
+        color: #242424;
         text-decoration: none;
         padding: 8px 12px;
-        transition: background 0.3s;
+        transition: background 0.3s, outline 0.3s;  /* Added outline transition for smooth effect */
+        box-sizing: border-box;  /* Ensure padding and border are included in the element's size */
     }
+
     nav a:hover {
-        background-color: #555;
-        border-radius: 5px;
+        outline: 3px solid #dd2b2b00;  /* Use outline instead of border */
+        border-bottom: 3px solid #dd2b2b;
+        border-radius: 5px;  /* Keep the rounded corners */
     }
+
 
     /* Hero Section Styling */
     .hero-section {
@@ -307,7 +433,7 @@
     }
 
     .book-now-btn {
-        background-color: #a40010;
+        background-color: #dd2b2b;
         color: white;
         border: none;
         padding: 10px 20px;
@@ -360,8 +486,8 @@
             width: 160px; /* Default width */
             height: 80px; /* Default height */
             border-radius: 10px; /* Rounded corners */
-            font-size: 0.6rem; /* Text size */
-            font-weight: 600; /* Bold text */
+            font-size: 0.7rem; /* Text size */
+            font-weight: 1000; /* Bold text */
             text-transform: uppercase; /* Make text uppercase */
             cursor: pointer; /* Change cursor to pointer */
             transition: all 0.3s ease; /* Smooth transition for hover effect */
@@ -413,37 +539,52 @@
         font-size: 0.9rem;
     }
 
-    /* Floating Chat Button */
-    .chat-button {
+    .chat-container {
         position: fixed;
-        bottom: 20px;   /* Distance from the bottom of the screen */
-        right: 20px;    /* Distance from the right of the screen */
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;  /* Center aligns vertically */
+        gap: 10px;            /* Space between .chat-info and .chat-button */
+        flex-direction: row;  /* Places .chat-button on the right */
+    }
+
+    .chat-info {
+        font-size: 14px;
+        font-weight: 800;
+        color: #ffffff;
+        text-align: left;
+        min-width: 200px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);  /* Background blur effect */
+        transition: opacity 0.3s ease;  /* Smooth transition for opacity */
+    }
+
+    /* Change .chat-info opacity when .chat-button is hovered */
+    .chat-container:hover .chat-info {
+        opacity: 1;  /* Full opacity on hover */
+    }
+
+    .chat-button {
         background-color: #25D366;  /* WhatsApp Green */
         border: none;
-        border-radius: 50%;
+        border-radius: 25px;
         display: flex;
-        justify-content: center;  /* Center the icon horizontally */
-        align-items: center;      /* Center the icon vertically */
-        padding: 10px;
+        justify-content: center;
+        align-items: center;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         z-index: 9999;
-        width: 100px;     /* Set button width to 50px */
-        height: 100px;    /* Set button height to 50px */
+        width: auto;     /* Button width */
+        height: 80px;    /* Button height */
     }
 
-    /* WhatsApp icon inside the button */
     .chat-button img {
-        width: 60px;  /* Set the icon width to 30px */
-        height: 60px; /* Set the icon height to 30px */
+        width: 60px;
+        height: 60px;
     }
 
-    /* Optional: Hover Effect */
-    .chat-button:hover {
-        background-color: #128C7E; /* Darker shade of WhatsApp green on hover */
-    }
-
-    
 </style>
 </head>
 <body>
@@ -455,21 +596,54 @@
             <div class="logo">
                 <a href="#"><img src="logo.png" alt="Logo"></a>
             </div>
-            <nav style="background-color: #242424; border-radius: 5px;">
-                <a href="https://wa.me/6287822387007">Contact</a>
+            
+            <!-- Navigation Links -->
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Scooter</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQ</a>
+            </nav>
+            
+            <!-- Language Toggle Button (with country flags) -->
+            <nav class="lang-toggle" style="padding-left: 50px;">
+                <a href="javascript:void(0);" onclick="toggleLanguageOptions()">
+                    <img id="language-icon" src="indonesia-flag.png" alt="Language Flag" />
+                    <span id="language-text" style="font-weight: 400;">IND</span>
+                    <img src="Arrow_Down.png" alt="Arrow Down" style=" width: 10px; height: 10px; vertical-align: middle; margin-left: 5px;"/>
+                </a>
+            </nav>
+
+
+            <!-- Language Options (Initially hidden) -->
+            <div id="language-options" class="language-options">
+                <a href="index.html" class="language-option">
+                    <img src="indonesia-flag.png" alt="Indonesia Flag" class="flag-icon" />
+                    <span>Indonesia</span>
+                </a>
+                <a href="#" class="language-option">
+                    <img src="US-flag.png" alt="English Flag" class="flag-icon" />
+                    <span>English</span>
+                </a>
+            </div>
+
+            <!-- Book Now Button -->
+            <nav class="book-now">
+                <a href="https://wa.me/6287822387007" style="font-weight: 800;">Book Now</a>
             </nav>
         </div>
     </header>
 
+
     <!-- Hero Section -->
     <section class="hero-section">
         <h1>Sewa Motor Baru di Bali! <br>
-            <p>Your Reliable patner for scooter rentals</p>
+            <p>Mitra terpercaya Anda untuk penyewaan Motor</p>
         </h1>
         <img src="PCX160ABS.png" alt="Scooter in Bali" class="hero-image">
         <!-- Red Dot in the corner -->
         <div class="red-dot"></div>
-        <button class="hero-button">See Our Scooter</butto>
+        <button class="hero-button" style="font-weight: bold;">Available Scooter</butto>
     </section>
 
     <!-- Our Scooter Section (Instagram-like Grid) -->
@@ -479,13 +653,7 @@
             <!-- Scooter Option 1: Vario 150 CBS -->
             <div class="grid-item" onclick="toggleDetails('scooter1')">
                 <img id="scooter1-image" src="Vario125CBSMBlack.png" alt="Vario 150 CBS">
-                <h3>Vario 150 CBS</h3>
-    
-                <!-- Color Options (Always visible) -->
-                <div class="color-options">
-                    <button class="color-btn" onclick="document.getElementById('scooter1-image').src='Vario125CBSMBlack.png'">Black</button>
-                    <button class="color-btn" onclick="document.getElementById('scooter1-image').src='Vario125CBSMBlue.png'">Blue</button>
-                </div>
+                <h3>Vario 150 CBS Matte Black</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
                 <div class="scooter-details" id="scooter1-details" style="display:none;">
@@ -498,20 +666,48 @@
                     </button>
                 </div>
             </div>
-    
-            <!-- Scooter Option 2: Scoopy Sporty -->
+
+            <!-- Scooter Option 2: Vario 150 CBS Blue-->
             <div class="grid-item" onclick="toggleDetails('scooter2')">
-                <img id="scooter2-image" src="ScoopySilver.png" alt="Scoopy Sporty">
-                <h3>Scoopy Sporty</h3>
-    
-                <!-- Color Options (Always visible) -->
-                <div class="color-options">
-                    <button class="color-btn" onclick="document.getElementById('scooter2-image').src='ScoopyBlack.png'">Black</button>
-                    <button class="color-btn" onclick="document.getElementById('scooter2-image').src='ScoopySilver.png'">Silver</button>
-                </div>
+                <img id="scooter2-image" src="Vario125CBSMBlue.png" alt="Vario 150 CBS">
+                <h3>Vario 150 CBS Matte Blue</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
                 <div class="scooter-details" id="scooter2-details" style="display:none;">
+                    <p>Motor Paling Reliable untuk Harian.</p>
+                    <p>Weekly Rate: Rp 700.000</p>
+                    <p>Monthly Rate: Rp 1.200.000</p>
+                    <!-- WhatsApp Book Now Button -->
+                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Vario%20150CBS%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Scooter Option 3: Scoopy Sporty Silver -->
+            <div class="grid-item" onclick="toggleDetails('scooter3')">
+                <img id="scooter3-image" src="ScoopySilver.png" alt="Scoopy Sporty">
+                <h3>Scoopy Sporty Silver</h3>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter3-details" style="display:none;">
+                    <p>Description: The Scoopy Sporty is a compact and fun scooter for daily use.</p>
+                    <p>Weekly Rate: Rp 600.000</p>
+                    <p>Monthly Rate: Rp 1.000.000</p>
+                        <!-- WhatsApp Book Now Button -->
+                    <button class="book-now-btn" onclick="window.location.href='https://wa.me/6287822387007?text=Halo%2C%20Saya%20mau%20Order%20Motor%20Scoopy%20Sporty%2C%20apakah%20ada%20unit%20yang%20ready%3F'">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scooter Option 4: Scoopy Sporty Silver -->
+            <div class="grid-item" onclick="toggleDetails('scooter4')">
+                <img id="scooter4-image" src="ScoopyBlack.png" alt="Scoopy Sporty">
+                <h3>Scoopy Sporty Black</h3>
+    
+                <!-- Scooter Details (Initially hidden, shown when clicked) -->
+                <div class="scooter-details" id="scooter4-details" style="display:none;">
                     <p>Description: The Scoopy Sporty is a compact and fun scooter for daily use.</p>
                     <p>Weekly Rate: Rp 600.000</p>
                     <p>Monthly Rate: Rp 1.000.000</p>
@@ -522,13 +718,13 @@
                 </div>
             </div>
     
-            <!-- Scooter Option 3: PCX 150 CBS -->
-            <div class="grid-item" onclick="toggleDetails('scooter3')">
-                <img id="scooter3-image" src="PCX150Silver.png" alt="PCX 150 CBS">
+            <!-- Scooter Option 5: PCX 150 CBS -->
+            <div class="grid-item" onclick="toggleDetails('scooter5')">
+                <img id="scooter5-image" src="PCX150Silver.png" alt="PCX 150 CBS">
                 <h3>PCX 150 CBS</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter3-details" style="display:none;">
+                <div class="scooter-details" id="scooter5-details" style="display:none;">
                     <p>Description: The PCX 150 CBS combines comfort and performance.</p>
                     <p>Weekly Rate: Rp 1.000.000</p>
                     <p>Monthly Rate: Rp 2.000.000</p>
@@ -539,13 +735,13 @@
                 </div>
             </div>
     
-            <!-- Scooter Option 4: PCX 160 CBS -->
-            <div class="grid-item" onclick="toggleDetails('scooter4')">
-                <img id="scooter4-image" src="PCX160ABS.png" alt="PCX 160 CBS">
+            <!-- Scooter Option 6: PCX 160 CBS -->
+            <div class="grid-item" onclick="toggleDetails('scooter6')">
+                <img id="scooter6-image" src="PCX160ABS.png" alt="PCX 160 CBS">
                 <h3>PCX 160 CBS</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
-                <div class="scooter-details" id="scooter4-details" style="display:none;">
+                <div class="scooter-details" id="scooter6-details" style="display:none;">
                     <p>Description: The PCX 160 CBS offers advanced features for a smooth ride.</p>
                     <p>Weekly Rate: Rp 1.250.000</p>
                     <p>Monthly Rate: Rp 2.500.000</p>
@@ -558,26 +754,26 @@
         </div>
     </section>
     
-    
-    <!-- Our Benefits Section -->
+    <!-- Bagian Manfaat Kami -->
     <section class="benefits-section">
         <div class="benefit-item">
-            <h3>Free Helmet </h3>
-            <p>Enjoy Your Riding With Safe Gear.</p>
+            <h3>Helm Gratis</h3>
+            <p>Nikmati Berkendara Anda Dengan Perlengkapan Keamanan.</p>
         </div>
         <div class="benefit-item">
-            <h3>Free Rain Coat</h3>
-            <p>Protecting You From Heavy Rainfall.</p>
+            <h3>Jas Hujan Gratis</h3>
+            <p>Melindungi Anda Dari Hujan Lebat.</p>
         </div>
         <div class="benefit-item">
-            <h3>New Units</h3>
-            <p>Our Scooters Oldest Unit is from 2020.</p>
+            <h3>Unit Baru</h3>
+            <p>Unit Skuter Terlama Kami Dari Tahun 2020.</p>
         </div>
         <div class="benefit-item">
-            <h3>Easy Booking</h3>
-            <p>Book your scooter quickly and easily online.</p>
+            <h3>Pemesanan Mudah</h3>
+            <p>Pesan skuter Anda dengan cepat dan mudah secara online.</p>
         </div>
     </section>
+
 
     <!-- FAQ Section -->
     <div class="faq-section">
@@ -606,9 +802,17 @@
     </footer>
 
     <!-- Floating Chat Button -->
-    <button class="chat-button" onclick="window.location.href='https://wa.me/6287822387007'">
-        <img src="whatsappicon.png" alt="WhatsApp" />
-    </button>
+    <div class="chat-container" style="margin: 20px;">
+        <button class="chat-button" onclick="window.location.href='https://wa.me/6287822387007'" style="border: none;">
+            <p class="chat-info" style="padding-left: 20px; margin: 0; font-weight: 100; font-family: Arial, Helvetica, sans-serif; font-size: small; line-height: 1.2;">
+                <span style="font-size: large; line-height: 1.2; font-weight: bold;">Book Your Scooter Now!</span><br>
+                <span style="font-size: small;">Operational Hours 08.00 ~ 22.00</span>
+            </p>
+            <img src="whatsappicon.png" alt="WhatsApp" style="margin: 20px;"/>
+        </button>
+    </div>
+
+
 
 </div>
 <script>
@@ -618,15 +822,6 @@
             item.classList.toggle('active');
         });
     });
-
-    // This function is for handling the color switch dynamically for all scooters.
-    function switchColor(imageId, color) {
-        if (color === 'black') {
-            document.getElementById(imageId).src = 'Vario125CBSMBlack.png';
-        } else if (color === 'blue') {
-            document.getElementById(imageId).src = 'Vario125CBSMBlue.png';
-        }
-    }
 
     function toggleDetails(scooterId) {
         // Get the details section based on the scooterId
@@ -640,10 +835,65 @@
         }
     }
 
+    document.onkeydown = function(e) {
+        if (e.keyCode == 123) {  // F12
+            return false;
+        }
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {  // Ctrl + Shift + I
+            return false;
+        }
+        if (e.ctrlKey && e.keyCode == 85) {  // Ctrl + U (View Source)
+            return false;
+        }
+    }
 
+    (function() {
+        var devtools = /./;
+        devtools.toString = function() {
+            alert('Developer tools are disabled!');
+        };
 
+        // Check if dev tools are open
+        setInterval(function() {
+            if (devtools.toString() !== "[object Object]") {
+                alert('Developer tools are open!');
+                // You could redirect the user to another page here
+                window.location.href = 'https://yourwebsite.com';
+            }
+        }, 500);
+    })();
+
+    document.addEventListener('keydown', function(e) {
+        // Disable F12 key
+        if (e.keyCode == 123) {
+            e.preventDefault();
+            alert('F12 is disabled.');
+        }
+
+        // Disable Ctrl + Shift + I (dev tools)
+        if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+            e.preventDefault();
+            alert('Inspect element is disabled.');
+        }
+    });
+
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('Right-clicking is disabled.');
+    });
+
+    // Function to toggle the visibility of language options
+    function toggleLanguageOptions() {
+        var options = document.getElementById("language-options");
+        
+        // Toggle display: if visible, hide it; if hidden, show it
+        if (options.style.display === "block") {
+            options.style.display = "none";
+        } else {
+            options.style.display = "block";
+        }
+    }
+    // This is Part of Default Company Tender Giant Creations from 2024
 </script>
-
-
 </body>
 </html>
