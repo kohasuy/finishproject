@@ -368,6 +368,8 @@
     /* Instagram-like Grid */
     .content-section {
         padding: 0 0;
+        align-content: center;
+        align-self: center;
     }
     .content-section h2 {
         text-align: center;
@@ -410,13 +412,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
         overflow: visible; /* Allows image to overflow the top */
+        width: 100%; /* Ensures it adjusts to grid size */
+        height: auto; /* Keeps the aspect ratio */
         max-height: 330px;
-        max-width: 400px;
     }
 
-    .grid-item:hover {
-        transform: scale(1.05);
-    }
 
     /* Image Styling */
     .grid-item img {
@@ -439,12 +439,13 @@
         width: 100%;
         margin-top: 150px;
         display: grid;
-        padding: auto;
+        padding: 0; /* Removed auto, not valid for padding */
         align-content: center;
         align-self: center;
-        grid-template-columns: 1fr; /* Default to 1 item per row */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates responsive columns */
         gap: 50px; /* Adds spacing between grid items */
     }
+
 
     .grid h3 {
         color: #dd2b2b;
@@ -496,26 +497,12 @@
         .grid {
             grid-template-columns: repeat(2, 1fr); /* 2 items per row */
         }
-
-        .grid-item {
-            padding: 15px;
-            right: -15%;
-        }
-
-        .scooter-details {
-                width: 100%;
-                bottom: 10px;
-                left: 0;
-        }
     }
 
     /* For larger screens (Desktops) */
     @media (min-width: 1350px) {
         .grid {
             grid-template-columns: repeat(3, 1fr); /* 2 items per row */
-        }
-        .grid-item {
-            right: -5%;
         }
     }
 
@@ -524,9 +511,6 @@
         .grid {
             grid-template-columns: 1fr; /* 1 item per row for very small screens */
             align-self: center;
-        }
-        .grid-item {
-            right: -27.5%;
         }
     }
 
@@ -647,7 +631,7 @@
 <body>
 
 <div id="page">
-<!-- Default Company Tender Giant was Here !!!  -->
+    <!-- Default Company Tender Giant was Here !!!  -->
     <header id="masthead">
         <div class="container">
             <div class="logo">
@@ -781,7 +765,6 @@
         </div>
     </section>
     
-    <!-- Bagian Manfaat Kami -->
     <section class="benefits-section">
         <div class="benefit-item">
             <h3>Helm Gratis</h3>
