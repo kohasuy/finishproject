@@ -165,8 +165,6 @@
         font-weight: 600;
     }
 
-
-
     /* Header */
     header {
         background-color: #ffffff;
@@ -491,29 +489,21 @@
         flex-direction: column;
     }
 
-
     /* Tablet and Desktop Layout (2 items per row) */
-    @media (min-width: 951px) {
-        .grid {
-            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
-        }
-    }
-
-    /* For larger screens (Desktops) */
-    @media (min-width: 1350px) {
+    @media (min-width: 751px) {
         .grid {
             grid-template-columns: repeat(3, 1fr); /* 2 items per row */
         }
     }
 
     /* For small mobile devices (max-width 480px) */
-    @media (max-width: 950px) {
+    @media (max-width: 750px) {
         .grid {
             grid-template-columns: 1fr; /* 1 item per row for very small screens */
             align-self: center;
         }
     }
-
+    
     /* Button Styling */
     .hero-button {
             color: #ffffff; /* Text color */
