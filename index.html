@@ -18,6 +18,12 @@
         color: #333;
         align-items: center;
         align-content: center;
+        overflow-x: hidden; /* Disable horizontal scrolling */
+    }
+    html {
+        width: 100%; /* Prevent horizontal scroll */
+        height: 100%; /* Ensure full height for vertical scrolling */
+        overflow-x: hidden; /* Disable horizontal scrolling */
     }
 
     /* Basic Header Styling */
@@ -28,6 +34,7 @@
     }
 
     .container {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -360,7 +367,7 @@
 
     /* Instagram-like Grid */
     .content-section {
-        padding: 40px 0;
+        padding: 0 0;
     }
     .content-section h2 {
         text-align: center;
@@ -391,20 +398,6 @@
         background-color: #555;
     }
 
-    /* General Grid Item Styling */
-    .grid-item {
-        position: relative;
-        text-align: center;
-        background-color: #fff;
-        padding: 15%;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-        overflow: hidden; /* Contain any excessive overflow */
-        max-height: 450px;
-        margin-bottom: 50px; /* Adds extra space between items */
-    }
-
     .grid-item:hover {
         transform: scale(1.05);
     }
@@ -414,11 +407,11 @@
         position: relative;
         text-align: center;
         background-color: #fff;
-        border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease-in-out;
         overflow: visible; /* Allows image to overflow the top */
-        max-height: 500px;
+        max-height: 330px;
+        max-width: 400px;
     }
 
     .grid-item:hover {
@@ -427,36 +420,43 @@
 
     /* Image Styling */
     .grid-item img {
-        width: 100%;
+        min-width: 405px;
+        min-height: 330px;
         height: auto;
         max-height: 50%;
         position: relative;
-        top: -20px; /* Moves image up by 20px to overlap the top */
+        align-self: center;
+        top: -40px; /* Moves image up by 20px to overlap the top */
+        right: 20px;
         max-width: none;
         margin-top: -20px; /* Further controls the overlap effect */
         transition: transform 0.3s ease-in-out;
-        z-index: 1; /* Ensures image is on top of background elements */
+        z-index: 0; /* Ensures image is on top of background elements */
     }
 
     /* Base Grid Layout */
     .grid {
-        margin-top: 100px;
+        width: 100%;
+        margin-top: 150px;
         display: grid;
+        padding: auto;
+        align-content: center;
+        align-self: center;
         grid-template-columns: 1fr; /* Default to 1 item per row */
         gap: 50px; /* Adds spacing between grid items */
     }
 
     .grid h3 {
         color: #dd2b2b;
-        z-index: 1;
+        z-index: 2;
         position: relative;
-        top: -5%; /* Adjust heading positioning if needed */
+        top: -100px; /* Moves image up by 20px to overlap the top */
     }
 
     .grid div {
-        z-index: 1;
+        z-index: 2;
         position: relative;
-        top: -5%;
+        top: -100px; /* Moves image up by 20px to overlap the top */
     }
 
     /* Color Options Styling */
@@ -492,13 +492,14 @@
 
 
     /* Tablet and Desktop Layout (2 items per row) */
-    @media (min-width: 768px) {
+    @media (min-width: 951px) {
         .grid {
             grid-template-columns: repeat(2, 1fr); /* 2 items per row */
         }
 
         .grid-item {
             padding: 15px;
+            right: -15%;
         }
 
         .scooter-details {
@@ -509,16 +510,23 @@
     }
 
     /* For larger screens (Desktops) */
-    @media (min-width: 1024px) {
+    @media (min-width: 1350px) {
         .grid {
             grid-template-columns: repeat(3, 1fr); /* 2 items per row */
+        }
+        .grid-item {
+            right: -5%;
         }
     }
 
     /* For small mobile devices (max-width 480px) */
-    @media (max-width: 480px) {
+    @media (max-width: 950px) {
         .grid {
             grid-template-columns: 1fr; /* 1 item per row for very small screens */
+            align-self: center;
+        }
+        .grid-item {
+            right: -27.5%;
         }
     }
 
@@ -695,14 +703,14 @@
         <button class="hero-button">Available Scooter</butto>
     </section>
 
-    <!-- Our Scooter Section (Instagram-like Grid) -->
+    <!-- Our Scooter Section -->
     <section class="content-section">
         <h2>Our Scooter</h2>
         <div class="grid">
-            <!-- Scooter Option 1: Vario 150 CBS -->
+            <!-- Scooter Option 1: Vario 125 CBS -->
             <div class="grid-item" onclick="toggleDetails('scooter1')">
-                <img id="scooter1-image" src="Vario125CBSMBlack.png" alt="Vario 150 CBS">
-                <h3>Vario 150 CBS Matte Black</h3>
+                <img id="scooter1-image" src="Vario125CBSMBlack.png" alt="Vario 125 CBS">
+                <h3>Vario 125 CBS Matte Black</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
                 <div class="scooter-details" id="scooter1-details">
@@ -711,10 +719,10 @@
                 </div>
             </div>
 
-            <!-- Scooter Option 2: Vario 150 CBS Blue-->
+            <!-- Scooter Option 2: Vario 125 CBS Blue-->
             <div class="grid-item" onclick="toggleDetails('scooter2')">
-                <img id="scooter2-image" src="Vario125CBSMBlue.png" alt="Vario 150 CBS">
-                <h3>Vario 150 CBS Matte Blue</h3>
+                <img id="scooter2-image" src="Vario125CBSMBlue.png" alt="Vario 125 CBS">
+                <h3>Vario 125 CBS Matte Blue</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
                 <div class="scooter-details" id="scooter2-details">
@@ -912,7 +920,7 @@
             options.style.display = "block";
         }
     }
-    // This is Part of Default Company Tender Giant Creations from 2024
+
 </script>
 </body>
 </html>
