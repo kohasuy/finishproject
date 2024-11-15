@@ -18,12 +18,10 @@
         color: #333;
         align-items: center;
         align-content: center;
-        overflow-x: hidden; /* Disable horizontal scrolling */
     }
     html {
         width: 100%; /* Prevent horizontal scroll */
         height: 100%; /* Ensure full height for vertical scrolling */
-        overflow-x: hidden; /* Disable horizontal scrolling */
     }
 
     /* Basic Header Styling */
@@ -436,17 +434,18 @@
 
     /* Base Grid Layout */
     .grid {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
+        width: 90%; /* Keeps grid responsive within the screen */
+        margin: 0 auto; /* Centers the grid horizontally */
         margin-top: 150px;
         display: grid;
-        padding: 0; /* Removed auto, not valid for padding */
+        padding: 0;
         align-content: center;
         align-self: center;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Creates responsive columns */
-        gap: 50px 0; /* Adds spacing between grid items */
+        grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+        grid-template-rows: repeat(2, auto); /* 2 rows, height adjusts automatically */
+        gap: 50px 30px; /* Adds spacing: 50px vertical, 30px horizontal */
     }
+
 
 
     .grid h3 {
@@ -491,14 +490,6 @@
         margin-top: 20px;
         text-align: center;
         flex-direction: column;
-    }
-
-
-    /* Tablet and Desktop Layout (2 items per row) */
-    @media (min-width: 751px) {
-        .grid {
-            grid-template-columns: repeat(3, 1fr); /* 2 items per row */
-        }
     }
 
     /* For small mobile devices (max-width 480px) */
