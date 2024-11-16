@@ -421,12 +421,13 @@
 
     /* Image Styling */
     .grid-item img {
-        min-width: 400px;
-        min-height: 330px;
+        min-width: 105%;
+        min-height: 100%;
         height: auto;
         max-height: 50%;
         position: relative;
-        top: -40px; /* Moves image up by 20px to overlap the top */
+        top: -50px; /* Moves image up by 20px to overlap the top */
+        right: 2.5%;
         max-width: none;
         transition: transform 0.3s ease-in-out;
         z-index: 0; /* Ensures image is on top of background elements */
@@ -437,6 +438,8 @@
         width: 90%; /* Keeps grid responsive within the screen */
         margin: 0 auto; /* Centers the grid horizontally */
         margin-top: 150px;
+        padding-left: 5%;
+        padding-right: 5%;
         display: grid;
         padding: 0;
         align-content: center;
@@ -446,19 +449,17 @@
         gap: 50px 30px; /* Adds spacing: 50px vertical, 30px horizontal */
     }
 
-
-
     .grid h3 {
         color: #dd2b2b;
         z-index: 2;
         position: relative;
-        top: -90px; /* Moves image up by 20px to overlap the top */
+        top: -100px; /* Moves image up by 20px to overlap the top */
     }
 
     .grid div {
         z-index: 2;
         position: relative;
-        top: -90px; /* Moves image up by 20px to overlap the top */
+        top: -110px; /* Moves image up by 20px to overlap the top */
     }
 
     /* Color Options Styling */
@@ -703,7 +704,7 @@
     
             <!-- Scooter Option 3: Scoopy Sporty Silver -->
             <div class="grid-item" onclick="toggleDetails('scooter3')">
-                <img id="scooter3-image" src="ScoopySilver.png" alt="Scoopy Sporty" style="left: -10px;">
+                <img id="scooter3-image" src="ScoopySilver.png" alt="Scoopy Sporty">
                 <h3>Scoopy Sporty Silver</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
@@ -715,7 +716,7 @@
 
             <!-- Scooter Option 4: Scoopy Sporty Silver -->
             <div class="grid-item" onclick="toggleDetails('scooter4')">
-                <img id="scooter4-image" src="ScoopyBlack.png" alt="Scoopy Sporty" style="left: -10px;">
+                <img id="scooter4-image" src="ScoopyBlack.png" alt="Scoopy Sporty">
                 <h3>Scoopy Sporty Black</h3>
     
                 <!-- Scooter Details (Initially hidden, shown when clicked) -->
