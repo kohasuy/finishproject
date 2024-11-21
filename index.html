@@ -287,7 +287,7 @@
             width: 350px;
             height: 350px;
         }
-    }
+    } 
 
     /* Mobile */
     @media (max-width: 767px) {
@@ -337,6 +337,7 @@
         flex: 1 1 45%;
         min-width: 200px;
         min-height: 100px;
+        margin-left: 40px;
         padding: 20px;
         border-radius: 8px;
         text-align: left;
@@ -407,7 +408,8 @@
 
     .contact-info {
         flex: 1 1 40%;
-        padding-top: auto;
+        padding-top: 40%;
+        padding-bottom: 40%;
         padding-left: 15%;
         padding-right: 15%;
         min-width: 300px;
@@ -415,7 +417,8 @@
         border-radius: 8px;
         display: flex; /* Enable flexbox */
         flex-direction: column; /* Stack items vertically */
-        justify-content: flex-end; /* Push the content to the bottom */
+        justify-content: center; /* Push the content to the bottom */
+        
     }
 
     .contact-info h2 {
@@ -543,6 +546,7 @@
         overflow: visible; /* Allows image to overflow the top */
         width: 90%; /* Ensures it adjusts to grid size */
         height: auto; /* Keeps the aspect ratio */
+        max-width: 330px;
         max-height: 370px;
         padding-bottom: 50px ;
     }
@@ -659,6 +663,13 @@
         .grid {
             grid-template-columns: 1fr; /* 1 item per row for very small screens */
             align-self: center;
+            align-content: center;
+        }
+
+        .grid-item {
+            margin-left: 20%;
+            max-width: 300px;
+            max-height: 330px;
         }
     }
 
@@ -776,10 +787,11 @@
 
     .motorcycle-gallery {
             position: relative; /* Enables absolute positioning for child elements */
-            width: 400px; /* Set a fixed width for the gallery container */
-            height: 300px; /* Set a fixed height for the gallery container */
+            width: clamp(300px, 50%, 400px);
+            height: clamp(200px, 40vh, 300px);
             margin: auto; /* Centers the gallery on the page */
-            right: 0;
+            margin-left: clamp(50px, 10vw, 180px); /* Dynamically adjusts with min and max limits */
+            right: clamp(-75px, 10vw, 0);
             margin-right: 15px;
         }
 
@@ -835,6 +847,7 @@
                 <a href="#">Scooter</a>
                 <a href="#">Contact</a>
                 <a href="#">FAQ</a>
+                <a href="#">Blog</a>
             </nav>
             
             <!-- Language Toggle Button (with country flags) -->
@@ -858,11 +871,6 @@
                     <span>English</span>
                 </a>
             </div>
-
-            <!-- Book Now Button -->
-            <nav class="book-now">
-                <a href="https://wa.me/6287822387007" style="font-weight: 800;">Book Now</a>
-            </nav>
         </div>
     </header>
 
@@ -1076,7 +1084,8 @@
         <p>&copy; 2024 Nyari Sewa Motor Bali. All rights reserved.</p>
     </footer>
 
-    <!-- Floating Chat Button -->
+    <!-- Floating Chat Button 
+    
     <div class="chat-container" style="margin: 20px;">
         <button class="chat-button" onclick="window.location.href='https://wa.me/6287822387007'" style="border: none;">
             <p class="chat-info" style="padding-left: 20px; margin: 0; font-weight: 100; font-family: Arial, Helvetica, sans-serif; font-size: small; line-height: 1.2;">
@@ -1086,6 +1095,8 @@
             <img src="whatsappicon.png" alt="WhatsApp" style="margin: 20px;"/>
         </button>
     </div>
+    
+    -->
 
 
 
