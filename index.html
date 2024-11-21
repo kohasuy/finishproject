@@ -318,17 +318,142 @@
         flex-wrap: wrap;
         gap: 20px;
         padding: 40px 20px;
-        background-color: #f0f0f0;
+        background-color: #ffffff;
     }
+
+    .benefits-title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .benefits-title h2 {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    /* Benefit Item Styling */
     .benefit-item {
         flex: 1 1 45%;
         min-width: 200px;
+        min-height: 100px;
         padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
-        text-align: center;
+        text-align: left;
+        position: relative;
+
     }
+
+    .benefit-item h3 {
+        padding-left: 100px;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .benefit-item p {
+        font-size: 0.9rem;
+        color: #666;
+        padding-left: 100px;
+    }
+
+    /* Logo Styling */
+    .benefit-logo {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        transform: translateX(-50%); /* Adjust to center the logo */
+        transform: translateY(-10%); /* Adjust to center the logo */
+        width: 80px;
+        height: 80px;
+        left: 20px;
+        border-radius: 50%; /* Circle shape */
+        background-color: #dd2b2b;
+        background-image: url('dotlogo.png'); /* Add your image path here */
+        background-size: 45px; /* Ensure the image covers the entire area */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat;
+    }
+
+    /* Responsive Design for Small Screens */
+    @media (max-width: 768px) {
+        .benefit-item {
+            flex: 1 1 100%;
+        }
+    }
+
+        /* Contact Section */
+    .contact-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 50px 100px;
+        background-color: #f9f9f9;
+        border-top: 1px solid #ddd;
+    }
+
+    .contact-map {
+        flex: 1 1 50%;
+        min-width: 200px;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-map iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 8px;
+    }
+
+    .contact-info {
+        flex: 1 1 40%;
+        padding-top: auto;
+        padding-left: 15%;
+        padding-right: 15%;
+        min-width: 300px;
+        padding: 20px;
+        border-radius: 8px;
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: flex-end; /* Push the content to the bottom */
+    }
+
+    .contact-info h2 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    .contact-info a {
+        color: #dd2b2b;
+        text-decoration: none;
+    }
+
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-section {
+            flex-direction: column;
+        }
+
+        .contact-map, .contact-info {
+            flex: 1 1 100%;
+        }
+
+        .contact-map iframe {
+            height: 250px;
+        }
+    }
+
 
     /* FAQ Section Styling */
     .faq-section {
@@ -370,9 +495,14 @@
         align-self: center;
     }
     .content-section h2 {
-        text-align: center;
+        text-align: left;
+        padding-left: 50px;
         font-size: 2rem;
-        margin-bottom: 20px;
+    }
+    .content-section p {
+        text-align: left;
+        padding-left: 50px;
+        font-size: 1.2rem;
     }
 
     /* Color selection button styling */
@@ -413,9 +543,34 @@
         overflow: visible; /* Allows image to overflow the top */
         width: 90%; /* Ensures it adjusts to grid size */
         height: auto; /* Keeps the aspect ratio */
-        max-height: 330px;
-        right: -2.5%;
-        left: 2.5%;
+        max-height: 370px;
+        padding-bottom: 50px ;
+    }
+
+    /* Book Now Button Styling */
+    .grid-item .book-now-btn {
+        height: 40px;
+        width: 200px;
+        position: absolute;
+        bottom: 15px; /* Positions the button at the bottom of the grid item */
+        left: 50%; /* Centers the button horizontally */
+        transform: translateX(-50%); /* Adjusts horizontal centering */
+        padding: 10px 30px; /* Adds spacing inside the button */
+        background-color: #e63946; /* Red color similar to the provided image */
+        color: #fff; /* White text */
+        border: none; /* Removes any border */
+        border-radius: 20px; /* Creates the rounded edges */
+        font-size: 16px; /* Matches button text size */
+        font-weight: bold; /* Makes the text bold */
+        cursor: pointer; /* Adds a pointer cursor on hover */
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds a slight shadow for depth */
+    }
+
+    .grid-item .book-now-btn:hover {
+        background-color: #d62828; /* Slightly darker red on hover */
+        transform: scale(1.5); /* Adds a hover zoom effect */
+        transform: translateX(-50%); /* Adjusts horizontal centering */
     }
 
 
@@ -435,11 +590,11 @@
 
     /* Base Grid Layout */
     .grid {
-        width: 90%; /* Keeps grid responsive within the screen */
+        width: 95%; /* Keeps grid responsive within the screen */
         margin: 0 auto; /* Centers the grid horizontally */
         margin-top: 150px;
-        padding-left: 5%;
-        padding-right: 5%;
+        margin-left: 3.5%;
+        margin-right: 3.5%;
         display: grid;
         padding: 0;
         align-content: center;
@@ -449,11 +604,17 @@
         gap: 50px 30px; /* Adds spacing: 50px vertical, 30px horizontal */
     }
 
-    .grid h3 {
+    .grid-item h3 {
         color: #dd2b2b;
         z-index: 2;
+        text-align: center;
         position: relative;
         top: -100px; /* Moves image up by 20px to overlap the top */
+    }
+    .grid-item p {
+        right: 20px;
+        text-align: center;
+        position: relative;
     }
 
     .grid div {
@@ -613,6 +774,49 @@
         height: 60px;
     }
 
+    .motorcycle-gallery {
+            position: relative; /* Enables absolute positioning for child elements */
+            width: 400px; /* Set a fixed width for the gallery container */
+            height: 300px; /* Set a fixed height for the gallery container */
+            margin: auto; /* Centers the gallery on the page */
+            right: 0;
+            margin-right: 15px;
+        }
+
+        .motorcycle-gallery img {
+            position: absolute; /* Allows stacking of images */
+            top: 0;
+            left: 0;
+            width: 100%; /* Make all images fit the container */
+            height: auto; /* Maintain the aspect ratio */
+            z-index: 1; /* Default stacking order */
+        }
+        
+            /* Apply higher z-index to control stacking order */
+        .motorcycle-gallery img:nth-child(1) {
+            z-index: 1;
+            left: -45%;
+            top: 15%;
+        }
+        /* Apply higher z-index to control stacking order */
+        .motorcycle-gallery img:nth-child(2) {
+            z-index: 0;
+            top: -5%;
+            left: -15%;
+        }
+
+        .motorcycle-gallery img:nth-child(3) {
+            z-index: -1;
+            left: 0;
+            top: -10%;
+        }
+
+        .motorcycle-gallery img:nth-child(4) {
+            z-index: -2;
+            top: -15%;
+            left: 15%;
+        }
+
 </style>
 </head>
 <body>
@@ -663,20 +867,24 @@
     </header>
 
 
-    <!-- Hero Section -->
+    <!-- Hero Section --> <!-- Sewa Motor Baru di Bali!, Mitra terpercaya Anda untuk penyewaan Motor -->
     <section class="hero-section">
-        <h1>Sewa Motor Baru di Bali! <br>
-            <p>Mitra terpercaya Anda untuk penyewaan Motor</p>
+        <h1 style="max-width: 600px; padding-left: 100px;">Ride Through Bali with Comfort and Freedom<br>
+            <p>Your Trusted Motorbike Rental Partner</p>
         </h1>
-        <img src="PCX160ABS.png" alt="Scooter in Bali" class="hero-image">
-        <!-- Red Dot in the corner -->
-        <div class="red-dot"></div>
-        <button class="hero-button">Available Scooter</butto>
+        <div class="motorcycle-gallery">
+            <img src="ScoopySilver.png" alt="Scoopy Silver">
+            <img src="Vario125CBSMBlue.png" alt="Vario 125 CBS Blue">
+            <img src="Vario125CBSMBlack.png" alt="Vario 125 CBS Black">
+            <img src="PCX160ABS.png" alt="PCX 160 ABS">
+        </div>
+        <!-- Red Dot in the corner<img src="PCX160ABS.png" alt="Scooter in Bali" class="hero-image">  <div class="red-dot"></div>  <button class="hero-button">Available Scooter</butto>-->
     </section>
 
     <!-- Our Scooter Section -->
     <section class="content-section">
-        <h2>Our Scooter</h2>
+        <h2>Our Scooter </h2>
+        <p>Each motorbike is maintained to the highest standards for a smooth journey.</p>
         <div class="grid">
             <!-- Scooter Option 1: Vario 125 CBS -->
             <div class="grid-item" onclick="toggleDetails('scooter1')">
@@ -688,6 +896,13 @@
                     <p>Weekly Rate: Rp 700.000</p>
                     <p>Monthly Rate: Rp 1.200.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20Vario%20125%20CBS%20warna%20Hitam?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
 
             <!-- Scooter Option 2: Vario 125 CBS Blue-->
@@ -700,6 +915,13 @@
                     <p>Weekly Rate: Rp 700.000</p>
                     <p>Monthly Rate: Rp 1.200.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20Vario%20125%20CBS%20warna%20Biru?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
     
             <!-- Scooter Option 3: Scoopy Sporty Silver -->
@@ -712,6 +934,13 @@
                     <p>Weekly Rate: Rp 600.000</p>
                     <p>Monthly Rate: Rp 1.000.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20Scoopy%20warna%20Silver?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
 
             <!-- Scooter Option 4: Scoopy Sporty Silver -->
@@ -724,6 +953,13 @@
                     <p>Weekly Rate: Rp 600.000</p>
                     <p>Monthly Rate: Rp 1.000.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20Scoopy%20warna%20Hitam?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
     
             <!-- Scooter Option 5: PCX 150 CBS -->
@@ -736,6 +972,13 @@
                     <p>Weekly Rate: Rp 1.000.000</p>
                     <p>Monthly Rate: Rp 2.000.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20PCX150%20warna%20Silver?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
     
             <!-- Scooter Option 6: PCX 160 CBS -->
@@ -748,29 +991,64 @@
                     <p>Weekly Rate: Rp 1.250.000</p>
                     <p>Monthly Rate: Rp 2.500.000</p>
                 </div>
+                <!-- Book Now Button -->
+                <a 
+                    class="book-now-btn" 
+                    href="https://wa.me/6287822387007?text=Halo%20Apa%20tersedia%20Motor%20PCX160%20warna%20Merah?" 
+                    target="_blank" style="text-decoration: none;">
+                    Book Now
+                </a>
             </div>
         </div>
     </section>
     
     <section class="benefits-section">
-        <div class="benefit-item">
-            <h3>Helm Gratis</h3>
-            <p>Nikmati Berkendara Anda Dengan Perlengkapan Keamanan.</p>
+        <div class="benefits-title">
+            <h2>About Us</h2>
+            <p>Experience the beauty of Bali with the freedom of our trusted motorbike rental service.</p>
         </div>
         <div class="benefit-item">
-            <h3>Jas Hujan Gratis</h3>
-            <p>Melindungi Anda Dari Hujan Lebat.</p>
+            <img class="benefit-logo">
+            <h3>Well Maintained</h3>
+            <p>We prioritize the safety and comfort of your rides.</p>
         </div>
         <div class="benefit-item">
-            <h3>Unit Baru</h3>
-            <p>Unit Skuter Terlama Kami Dari Tahun 2020.</p>
+            <img class="benefit-logo">
+            <h3>Fair Prices</h3>
+            <p>Quality and affordability in one package.</p>
         </div>
         <div class="benefit-item">
-            <h3>Pemesanan Mudah</h3>
-            <p>Pesan skuter Anda dengan cepat dan mudah secara online.</p>
+            <img class="benefit-logo">
+            <h3>Free Delivery</h3>
+            <p>Complimentary pick-up and drop-off services in areas like Kuta, Legian, Seminyak, and Sanur.</p>
+        </div>
+        <div class="benefit-item">
+            <img class="benefit-logo">
+            <h3>Easy-to-Book</h3>
+            <p>Quick booking with simple requirements, making it hassle-free for you.</p>
         </div>
     </section>
 
+    <section class="contact-section">
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d986.0796281107548!2d115.1806128284324!3d-8.661227399459372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd247002aa5fc87%3A0x9cdfe65b219ae365!2sENIS%20SCOOTER%20RENTAL!5e0!3m2!1sid!2sid!4v1731918327002!5m2!1sid!2sid" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Our team is ready to assist you daily from 08:00 to 21:00.</p>
+            
+            <p style="padding-top: 50px;"><strong>Direct Call:</strong> +62 878 2238 7007</p>
+            <p><strong>Whats App:</strong> +62 878 2238 7007</p>
+            <p><strong>Email:</strong> <a href="mailto:s7n.sigma@gmail.com">s7n.sigma@gmail.com</a></p>
+        </div>
+    </section>    
 
     <!-- FAQ Section -->
     <div class="faq-section">
